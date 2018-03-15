@@ -1,0 +1,581 @@
+html, body {margin:0;padding:0;height:100%;
+font-family: monospace;
+}
+
+.split {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+    overflow: auto;
+    
+  }
+
+.gutter {
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  .gutter.gutter-horizontal {
+    background-image: url('grips/vertical.png');
+    cursor: ew-resize;
+  }
+
+  .gutter.gutter-vertical {
+    background-image: url('grips/horizontal.png');
+    cursor: ns-resize;
+  }
+
+  .split.split-horizontal, .gutter.gutter-horizontal {
+    height: 100%;
+    float: left;
+  }
+  
+#an3 p, #an4 p{
+  text-align:center; 
+  vertical-align: middle;
+
+}  
+
+#left {
+  overflow: hidden;
+  float: left;
+  /*background-color: #F6F6F6;*/
+  background-color: #FFFFFF;
+  
+  position: relative;
+  left: 0px;  /* positioned by default */
+  top: 0px;
+  
+}
+
+#right {
+	overflow: auto;
+	float:left;
+  /*background-color: #FDF3E7;*/
+  background-color: #FFFFFF;
+
+  padding:0;
+
+}
+
+#text_code {
+	/*padding-left:10px;*/
+  margin:0;
+}
+
+#showCycles{
+	/* margin: 5px; */
+}
+
+/*
+.clear {
+  clear: both;
+}
+*/
+
+svg {
+  overflow: auto;
+  padding: 5px;
+  width: 100%;
+  height:100%;
+}
+
+.node rect {
+  /* stroke: #333; */
+  stroke: black;
+  stroke-width: 1.5px;
+  fill: linen;
+}
+
+.edgeLabel rect {
+  fill: #fff;
+}
+
+.edgePath {
+  stroke: #000;
+  stroke-width: 1.5px;
+  fill: none;
+}
+
+.node.selected rect{
+	/* stroke: #F44336;
+	stroke-width: 2px; */
+
+  stroke-width:9; stroke:#F44336;
+	
+}
+
+.brush .extent {
+	fill-opacity: .1;
+	stroke: #fff;
+	shape-rendering: crispEdges;
+}
+
+#nodeGrpView h4, #annotateCode h4{
+	margin: 5px;
+}
+
+#nodeGrpView p, #annotateCode p{
+	margin: 2px;
+	padding: 0 0 0 10px;
+	background-color: #d4eaf7;
+}
+
+#nodeGrpView, #annotateCode {
+	background-color: #e3f0f7;
+}
+
+#fnGrpView h4, #loopsView h4{
+  margin: 5px;
+}
+
+#fnGrpView p, #loopsView p{
+  margin: 2px;
+  padding: 0 0 0 15px;
+  background-color: #d4eaf7;
+  background-image: url("assets/minus.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+#fnGrpView p.collapsed, #loopsView p.collapsed{
+  background-image: url("assets/plus.png");
+  background-repeat: no-repeat;
+}
+
+#fnGrpView, #loopsView {
+  background-color: #e3f0f7;
+}
+
+#test
+{
+    position: absolute;
+    visibility: hidden;
+    height: auto;
+    width: auto;
+    white-space: nowrap; 
+}
+
+.invisible {
+	display: none !important; 
+}
+
+.node.group rect {
+	stroke: #3f51b5;
+	stroke-width: 3px;
+}
+
+.node.function rect {
+  stroke: #3f51b5;
+  stroke-width: 9px;
+}
+
+.node.loop rect {
+  stroke: #3f51b5;
+  stroke-width: 3px;
+}
+
+
+#tooltip {
+        position: absolute;
+        width: 300px;
+        height: auto;
+        padding:3px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+        
+}
+
+.hidden {
+  display:none;
+}
+
+#tooltip p {
+        margin: 0;
+        font-family: monospace;
+        font-size: 1.25em;
+}
+
+label {
+   cursor: pointer;
+}
+
+#text_code p {
+  padding: 5px;
+  margin:0;
+  
+}
+
+#text_code p.highlight{
+  border-color: teal;
+  /*border-color: #009999;*/
+  border-style: solid;
+  border-width: 2px;
+}
+
+#text_code p.active {
+  background-color:antiquewhite;
+  border-color: teal;
+  /*border-color: #009999;*/
+  border-style: solid;
+  border-width: 2px;
+
+  border-left: 5px solid teal;
+  /*border-left: 5px solid #009999;*/
+}
+
+#text_code p.start{
+  border-color:lightgreen;
+  border-style:solid;
+  border-width:2px;
+}
+
+#text_code p.end{
+  border-color:plum;
+  border-style:solid;
+  border-width:2px;
+}
+
+.node.highlight {
+  /* fill:white; */
+}
+
+.node.highlight rect{
+  /* fill:#19a122; */
+  /* stroke:darksalmon; */
+  /*stroke-width:2px; */
+
+  /* stroke-width:9; stroke:#19a122; */
+  stroke-width:9; 
+  stroke:teal;
+  /*stroke:#009999;*/
+}
+
+.node.active {
+  /* fill:white; */
+}
+
+.node.active rect{
+  /* fill:teal; */
+  /*stroke:teal;
+  stroke-width:2px; */
+
+  stroke-width:9; 
+  stroke:teal; 
+  /*stroke:#009999;*/
+}
+
+.edgePath.highlight {
+  stroke:darkcyan;
+  stroke-width:5px;
+}
+
+.edgePath.backedge {
+  /* stroke: darkorange; */
+  stroke: #dd1c77;
+  
+  stroke-width:15px;
+}
+
+.edgePath.active {
+   stroke:teal; 
+  /*stroke:#009999;*/
+
+  stroke-width:5px;
+}
+
+.edgeLabel.highlight {
+  font-size: x-large;
+}
+
+.node.dashed {
+  stroke-dasharray: 5,8;
+}
+
+.edgePath.dashed {
+  stroke-dasharray: 5,8;
+}
+
+/*
+input[type=file] {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+*/
+
+#FnBBox, #loopBBox {
+  stroke: red;
+  stroke-width: 12;
+  fill:none;
+}
+
+#loopsView li {
+  list-style: none;
+}
+
+#loopsView ul.root{
+  margin:0;
+  padding:0;
+}
+
+#loopsView ul{
+  padding: 0 0 0 10px;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    /* background-color: #111; *//* Black*/
+    background-color: #7386D5;
+
+    overflow-x: auto; /* Disable horizontal scroll */
+    overflow-y: auto;
+    padding-top: 40px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #ff7f00;
+}
+
+
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: darkorange;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.sidenavHolderDiv {
+  background-color: #e3f0f7;
+}
+
+.sidenavHolderDiv h4 {
+  margin: 5px;
+  color: #001ba5;
+}
+
+.sidenavHolderDiv h4:hover{
+  color: #ff7f00;
+}
+
+/* Style for the topHoverMenu */
+/* Dropdown Button */
+.dropbtn {
+    background-color: #7386D5;
+    color: white;
+    padding: 5px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+    position:fixed;
+    /*left:300px;*/
+    left:44%;
+    top:0;
+
+    width:70px;
+    height:30px;
+
+    z-index: 3;
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    /* position: relative; */
+    position:fixed;
+    left:0;
+    top:0;
+
+ 
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    
+    /*position: absolute;*/
+    
+
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+    padding:10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+/*
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+*/
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #5060a0;
+}
+
+/* Styling for taint button*/
+.flexContainer {
+  /* This bit sets up the horizontal layout */
+  display:flex;
+  flex-direction:row;
+  
+  /* This bit draws the box around it */
+  border:1px solid grey;
+  padding:2px;
+}
+
+#taintAddress {
+  /* Tell the input to use all the available space */
+  flex-grow:2;
+  /* And hide the input's outline, so the form looks like the outline */
+  border:none;
+}
+
+#doTaint {
+  /* Just a little styling to make it pretty */
+  border:1px solid #8856a7;
+  background-color: #8856a7;
+  color:white;
+}
+
+span.taint{
+  background-color: #8856a7;
+  color:white;
+}
+
+#doTaint:active {
+  background-color: #b98fd3;
+}
+
+rect.taint{
+  fill:#8856a7;
+}
+
+/*Gradient for taint from #8856a7 - #efedf5 */
+
+tspan.taint{
+  /*fill:#8856a7; */
+  fill:white;
+
+  /* font-weight: bold; */
+}
+
+/* Styling for encoding key menu */
+#encodingKeyHelpbtn {
+
+  border: none;  
+  cursor: pointer;
+
+  position:fixed;
+  right:0;
+  top:0;
+
+  width:30px;
+  height:30px;
+
+  z-index: 3;
+
+  background: url('assets/info.png') center no-repeat;
+  background-size: 30px 30px;
+
+}
+
+#encodingKeyContainer {
+  display:none;
+  position:fixed;
+  right:0;
+  top: 30px;
+  z-index: 10;
+
+  width:80%;
+  height:80%;
+
+  background: url('assets/encoding_key_final.png') center no-repeat;
+  background-size: 100% 100%;
+
+  border-style:ridge;
+  border-width:3px ;
+  border-color: #74A8CD;
+
+}
+
+#bugReportbtn {
+  border: none;  
+  cursor: pointer;
+
+  position:fixed;
+  right:35px;
+  top:0;
+
+  width:30px;
+  height:30px;
+
+  padding-top: 3px;
+
+  z-index: 3;
+  
+}
+
+
+
+
+
+
+

@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    <meta charset="utf-8">
+    <title>CompilerVis</title>
+    <script src="../static/trace_CFG/lib/jquery-3.1.1.min.js"></script>
+    <script src="../static/trace_CFG/lib/split.js"></script>
+    <script src="../static/trace_CFG/lib/d3.min.js"></script>
+    <script src="../static/trace_CFG/lib/graphlib.min.js"></script>
+    <script src="../static/trace_CFG/lib/graphlib-dot.min.js"></script>
+    <script src="../static/trace_CFG/lib/dagre-d3.min.js"></script>
+    <!-- <script src="../static/trace_CFG/lib/graham_scan.js"></script> -->
+    <script src="../static/trace_CFG/lib/convexhull.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/trace_CFG/style.css">
+  
+</head>
+  <body>
+     <!-- <div id="container" class="split split-vertical"> -->
+
+      
+      <div id="left" class="split split-horizontal">
+      	
+            <!-- Sidebar starts from here -->
+
+            <div id="mySidenav" class="sidenav">
+
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+            <!--
+            <div class="sidenavHolderDiv">
+              <h4>Node Groups</h4>
+              <div id = "nodeGrpView" >
+                
+              </div>
+            </div>
+            -->
+        
+            <div class="sidenavHolderDiv">
+              <h4>Function Blocks</h4>
+              <div id = "fnGrpView">
+                
+              </div>
+            </div>
+
+            <div class="sidenavHolderDiv">
+              <h4>Loop Hierarchy</h4>
+              <div id = "loopsView">
+                
+              </div>
+            </div>
+
+            <!--
+            <div class="sidenavHolderDiv">
+              <h4>Annotation</h4>
+              <div id = "annotateCode" >
+                
+              </div>
+            </div> 
+            -->
+            
+          </div>
+
+          <!-- Use any element to open the sidenav -->
+          <!-- <span onclick="openNav()">open</span> -->
+
+          <button onclick="openNav()" style="position:fixed; top:0;
+    		left:0;" >☰</button>
+
+          <!-- Sidebar ends here -->
+        
+
+        <!-- Place these buttons into this panel -->
+
+        <button class="dropbtn" id= "mydropbtn">Menu</button>
+
+        <div id="myHoverTopNav" class="dropdown">
+        	
+        	<!-- dropbtn was moved from here -->    
+
+            <div id="topPanel" class="dropdown-content">
+              
+            <label style=" padding: 3px;" for="fi_dot">Input Dot file</label>
+            <input style=" padding: 3px;" type="file" id="fi_dot"/>
+            <br/>
+            <label style=" padding: 3px;" for="fi_trace">Input Trace file</label>
+            <input style=" padding: 3px;" type="file" id="fi_trace"/>
+
+            <br/>
+            <input style=" margin: 3px;" type="button" id="loadFile" value="LoadFiles"/>
+            <br/>
+
+            <input style=" margin: 3px;" type="button" id="showCycles" value="Show Cycles"/>
+            <input style=" margin: 3px;" type="button" id="showLoops" value="Show Loops"/>
+            
+            <br/>
+
+            <label style=" margin:3px; padding: 3px;"><input style=" margin: 3px;" type="checkbox" id="enableNodeDrag" value="enableNodeDrag">Enable Node Dragging</label>
+            
+            <br/>            
+
+            <label style=" margin:3px; padding: 3px; display:none"><input style=" margin: 3px;" type="checkbox" id="enableBrush" value="enableBrush">Enable Brush</label>
+            <label style=" margin:3px; padding: 3px;"><input style=" margin: 3px;" type="checkbox" id="enableTooltip" value="enableTooltip" checked>Enable Tooltip</label>
+
+            <br/>
+
+            <!-- <label><input type="checkbox" id="showGradient" value="showGradient">Gradient</label>
+            <label><input type="checkbox" id="showPath" value="showPath">Display Path</label> -->
+            <label style=" margin:3px; font-weight: bold; padding:1px"><input style=" margin: 3px;" type="checkbox" id="countEncoding" value="countEncoding" checked>Show Node Visit</label>
+
+            <label style=" margin:3px; background-color:#fdd0a2; padding:1px"><input style=" margin: 3px;" type="checkbox" id="loopBgFill" value="loopBgFill" checked>Show Loop Boundaries</label>
+           
+            <!-- <input type="button" id="animate" value="Animate Path"/> -->
+
+            <br/>
+            <br/>
+
+            <label style=" margin:3px; padding:1px"> Select Analysis:
+            <select id="analysisSelector"> 
+              <option value="backTaint">BackTaint</option>
+              <option value="allUERs">UERs</option>
+              <option value = "inUERs">InUERs</option>
+              <option value = "outUERs"> OutUERs</option>
+            </select>
+            </label>
+
+            <div style=" margin: 5px;" class="flexContainer" >      
+              <input  type="text" name="taintAddr" id="taintAddress"/>
+              <input type="button" id="doTaint" value = "Perform Analysis"/>
+            </div>
+
+            <!-- Placeholder for taint Slider -->
+            <div id = "slidercontainer" style="color:#8856a7;">
+              Show <input type = "range" min="1" max="100" value = "10" class="slider" id="myTaintSlider">
+              <span id="sliderOutput">10</span> nearest addresses
+              <!-- <span id="sliderOutput">10</span> top results -->
+
+
+              <!--
+              <br/>
+              <label style=" margin:3px; padding: 3px;"><input style=" margin: 3px;" type="checkbox" id="showAllTaintAddrs" value="showAllTaintAddrs">Show All Taint Addresses</label>
+              -->
+
+            </div>
+
+            <br/>
+
+            <input style=" margin: 3px;"  type="button" id="save" value="Save File"/>
+            <input style=" margin: 3px;" type="button" id="closeMenu" value="Close Menu">
+
+          </div>
+        </div>
+        
+
+        <!-- The topPanel is taken from here -->
+
+
+        <!-- The topPanel ended here -->
+
+        <a href="https://github.com/devkotasabin/compiler-vis-issues/issues/new" id = "bugReportbtn" target="_blank">
+        <img border="0" alt="Submit a Bug Report or Feature Request" src="../static/trace_CFG/assets/bug_report.png" width="25" height="25">
+        </a>
+
+        <button id= "encodingKeyHelpbtn">
+         <!-- <img src="../static/trace_CFG/assets/info.png" alt = "Info" width="30" height="30"> -->
+        </button>
+
+        <div id = "encodingKeyContainer">
+          
+          <!--  
+          <img src="../static/trace_CFG/assets/encoding_key_final.png" alt = "Key for Different Encodings" width = "500" height="340">
+          -->
+
+        </div>
+
+        <!-- <div id="gradient" style="width:150px; height:20px; position:relative;"></div> -->
+
+        <div id="tooltip" class="hidden">
+                <p><span id="value"></span></p>
+        </div>
+        
+        <div id="loading" class="hidden" style="margin-left: 20px; margin-top:400px; font-size: x-large; color:#3f51b5 ; ">
+          Loading. Please Wait!
+        </div>
+
+        <svg id="graphContainer">
+            
+          <g/>
+        </svg>
+      </div>
+      
+      <div id="right" class="split split-horizontal">
+          <!-- 
+          <svg id="text_code">
+            <g/>
+          </svg>
+          -->
+          <!--
+          <div id="text_code">
+          </div>
+          -->  
+        	<pre id="text_code">
+          </pre>
+      </div>
+      <!-- div class="clear"></div -->
+      
+    <!-- </div> -->
+
+
+    <!--
+	 <div id="annotations" class="split split-vertical">
+      <div id = "an1" class="split split-horizontal">
+      	<h4>Node Groups</h4>
+      </div>
+      <div id = "an2" class="split split-horizontal">
+        <h4>Function Blocks</h4>
+      </div>
+      <div id = "an3" class="split split-horizontal">
+      	<h4>Loops</h4>
+      </div>
+      <div id = "an4" class="split split-horizontal">
+      	<p>Annotation on Code</p>
+      </div>  
+    </div>
+    -->
+    
+    <script src="../static/trace_CFG/main.js"></script>
+    <script src="../static/trace_CFG/fnManip.js"></script>
+    <script src="../static/trace_CFG/loopCollapser.js"></script>
+    <script src="../static/trace_CFG/loopify_dagre.js"></script>
+        
+  </body>
+</html>
