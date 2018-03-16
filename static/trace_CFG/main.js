@@ -199,6 +199,9 @@
   d3.select("#doTaint")
         .on("click", function(){
 
+       alert("The backtaint and UERDetector libraries are not public and are not available. We are in the process of developing an interface to let you plug your analysis scripts. You can try these analysis in the demo site.");
+       return;
+
       // Get the type of analysis
       var sel = d3.select("#analysisSelector").node();
       var analysisType = sel.options[sel.selectedIndex].value;
