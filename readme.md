@@ -11,9 +11,10 @@
 * When running the webpage on localhost, the flask server needs to be restarted whenever new code is pulled from github. Press Ctrl+c to stop the server and "python3 -m flask run" to restart it. This is because flask server caches the html file while its running.
 
 ### Starting the flask server
+'''
 export FLASK_APP=looper.py
-
 python3 -m flask run
+'''
 
 This runs the webapp on the following address:
 
