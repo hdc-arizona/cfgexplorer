@@ -12,6 +12,7 @@
 
 ### Starting the flask server
 export FLASK_APP=looper.py
+
 python3 -m flask run
 
 This runs the webapp on the following address:
