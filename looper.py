@@ -50,7 +50,8 @@ def getBackTaint():
 
 	########### Started Edit here
 	# Read the json file
-	analysisFile = json.load("analysis.json")
+	with open('analysis.json') as json_file
+		analysisFile = json.load(json_file)	
 	bt_analysis = analysisFile["backtaint"]
 	script_path = bt_analysis["scriptpath"]
 	language = bt_analysis["language"]
