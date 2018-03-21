@@ -47,6 +47,17 @@ def findLoops():
 
 @app.route('/getBackTaint/', methods=['GET', 'POST'])
 def getBackTaint():
+
+	########### Started Edit here
+	# Read the json file
+	analysisFile = json.load("analysis.json")
+	bt_analysis = analysisFile["backtaint"]
+	script_path = bt_analysis["scriptpath"]
+	language = bt_analysis["language"]
+	outfilename = bt_analysis["outfilename"]
+	########### Ended Edit here
+
+
 	if request.method=='POST':
 		received = request.json
 		# get the taint address
@@ -64,14 +75,25 @@ def getBackTaint():
 	with open(fileName, 'w') as tempfile:
 		tempfile.write(data)
 
-	# p = subprocess.Popen(["./backTaint.rb", fileName, address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-	p = subprocess.Popen(["ruby", "backTaint.rb", fileName, address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	# # p = subprocess.Popen(["./backTaint.rb", fileName, address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	# p = subprocess.Popen(["ruby", "backTaint.rb", fileName, address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	# output, error = p.communicate()
+	# #Delete the temp file
+	# os.remove(fileName)
+
+	# if error:
+	# 	raise Exception("Error " + str(error))
+
+	########### Started Edit here
+	p = subprocess.Popen([language, scriptpath, fileName, address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	output, error = p.communicate()
 	#Delete the temp file
 	os.remove(fileName)
 
 	if error:
 		raise Exception("Error " + str(error))
+	########### Ended Edit here
+
 	return output
 
 @app.route('/getUERs/', methods=['GET', 'POST'])
