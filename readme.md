@@ -23,3 +23,7 @@ This runs the webapp on the following address:
 ### Licence
 
 LGPLv2. [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/LICENSE) for more details 
+
+### Publications
+
+* Sabin Devkota and Katherine E. Isaacs. "CFGExplorer: Designing a Visual Control Flow Analytics System around Basic Program Analysis Operations." To appear in Computer Graphics Forum (EuroVis Proceedings). 2018.
