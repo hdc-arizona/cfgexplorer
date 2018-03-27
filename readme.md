@@ -19,3 +19,7 @@ python3 -m flask run
 This runs the webapp on the following address:
 
 `localhost:5000/tracevis/`
+
+### Licence
+
+LGPLv2. [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/LICENSE) for more details 
