@@ -37,6 +37,9 @@ This runs the webapp on the following address:
 
 `localhost:5000/tracevis/`
 
+### Plugging in custom backtainting script
+[Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/analysis_readme.md) for details.
+
 ### More Usage notes
 
 * This software works best when used with latest version of Google Chrome.
@@ -51,7 +54,7 @@ This runs the webapp on the following address:
 
 ### Licence
 
-LGPLv2. [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/LICENSE) for more details 
+LGPLv2. [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/LICENSE) for more details. 
 
 ### Publications
 
