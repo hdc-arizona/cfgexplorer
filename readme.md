@@ -27,12 +27,6 @@ This is a public repository for cfgexplorer project.
 ### LoopFinding
 * For loopfinding, the current requirement is that the CFG should have exactly one source node (i.e. the node with no incoming edges and one or more outgoing edges).
 
-### Trace Syntax
-The full syntax of execution ASCII trace can be found here. 
-
-https://github.com/stephensj2/ScienceUpToPar/wiki/Verbose-ASCII-Trace-Format
-
-
 ### Starting the flask server
 ```
 export FLASK_APP=looper.py
@@ -61,4 +55,6 @@ LGPLv2. [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/LIC
 
 ### Publications
 
-* Sabin Devkota and Katherine E. Isaacs. "CFGExplorer: Designing a Visual Control Flow Analytics System around Basic Program Analysis Operations." To appear in Computer Graphics Forum (EuroVis Proceedings). 2018.
+Please cite:
+
+Sabin Devkota and Katherine E. Isaacs. "CFGExplorer: Designing a Visual Control Flow Analytics System around Basic Program Analysis Operations." To appear in Computer Graphics Forum (EuroVis Proceedings). 2018.
