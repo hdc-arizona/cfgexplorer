@@ -1,13 +1,13 @@
 {
-  "types":[
+  "types": [
     "instrHighlight"
   ],
-  
-  "scripts": [{
-    "type": "instrHighlight",
-    "language": "",
-    "scriptpath": "",
-    "outfilename": ""
-    
-  }]
+  "scripts": [
+    {
+      "type": "instrHighlight",
+      "language": "",
+      "scriptpath": "",
+      "outfilename": ""
+    }
+  ]
 }
