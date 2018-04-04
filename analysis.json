@@ -1,7 +1,7 @@
 {
-  "types":{
+  "types":[
     "instrHighlight"
-  },
+  ],
   
   "scripts": [{
     "type": "instrHighlight",
