@@ -1,18 +1,25 @@
-### Plugging in custom script for program analysis
+### Plugging in custom script for instruction highlighting 
 
-- Place your scripts inside the 'cfgexplorer/scripts' directory.
-- In the analysis.json file, update the fields for each type of analysis
-- Two types of analysis are supported currently: Backtaint and Upward Exposed Read (UER) detection.
+- Place your scripts inside the `cfgexplorer/scripts` directory.
+- In the `analysis.json` file, add the scripts 
 
-### Backtaint Analysis
+### For Instruction Highlighting
 
-Input: Takes as input an ASCII trace file, and the address to perform the taint on.
-Output: Outputs an ordered list of addresses that are the taint of the instruction.
+The script should output a list of instructions to be highlighted along with a distance metric for general gradient based highlighting. For single color highlighting, the distances can all be same. 
+
+'''Example Output Format: 
+[{ "instr_addr":"4006cf"
+"dist":1},
+{ "instr_addr":"400dec"
+"dist":2},
+.
+.
+.
+]
+'''
 
 In the analysis.json file, under backtaint, update the language (i.e. python3, ruby etc.),
 update the scriptpath to be "scripts/....", update the outfilename to be the name of the file output by the program (if exists).
 
-### UER Detection
-An Upward Exposed Read (UER) is the read which is not followed by writes within an iteration of a loop. It is computed with respect to loops. inUERs are the reads for which the writes are inside the loop. outUERs are the reads for which the writes are outside the loop.   
 
 
