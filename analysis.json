@@ -1,22 +1,13 @@
 {
-  "backtaint": {
-    "language": "",
-    "scriptpath": "",
-    "outfilename": ""
-  },
-  "allUER": {
-    "language": "",
-    "scriptpath": "",
-    "outfilename": ""
-  },
-  "inUER": {
-    "language": "",
-    "scriptpath": "",
-    "outfilename": ""
-  },
-  "outUER": {
-    "language": "",
-    "scriptpath": "",
-    "outfilename": ""
+  "types":{
+    "instrHighlight"
   }
+  
+  "scripts": [{
+    "type": "instrHighlight"
+    "language": "",
+    "scriptpath": "",
+    "outfilename": ""
+    
+  }]
 }
