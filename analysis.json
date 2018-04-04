@@ -1,10 +1,10 @@
 {
   "types":{
     "instrHighlight"
-  }
+  },
   
   "scripts": [{
-    "type": "instrHighlight"
+    "type": "instrHighlight",
     "language": "",
     "scriptpath": "",
     "outfilename": ""
