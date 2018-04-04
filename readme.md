@@ -37,7 +37,7 @@ This runs the webapp on the following address:
 
 `localhost:5000/tracevis/`
 
-### Plugging in custom backtainting script
+### Plugging in custom instruction highlighting script
 [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/analysis_readme.md) for details.
 
 ### More Usage notes
