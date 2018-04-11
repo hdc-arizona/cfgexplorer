@@ -2,6 +2,12 @@
 
 This is a public repository for cfgexplorer project. 
 
+![alt text](https://github.com/hdc-arizona/cfgexplorer/blob/develop/screenshots/CFGExplorer-teaser.svg "CFGExplorer Teaser")
+
+![alt text](https://github.com/hdc-arizona/cfgexplorer/blob/develop/screenshots/Loop%20Background%20Highlighting%20Big%20Graph.png "Loop Background Highlighting")
+
+[Click here](https://github.com/hdc-arizona/cfgexplorer/tree/develop/screenshots) for more screenshots.
+
 ## Usage notes:
 * Works best with Google Chrome browser. Firefox sometimes mis-centers the graph.
 * For large graphs (~1K nodes), the layout takes some time. The browser may pop up a warning saying the script is unresponsive. Please allow the script to continue. We are working on moving this layout server-side to avoid this issue.
