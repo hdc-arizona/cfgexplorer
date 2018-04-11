@@ -122,6 +122,8 @@
   
   var default_file = "cfg.main.dot"; 
 
+  var analysis_params = [];
+
   // Split(['#container', '#annotations'], {
   //       direction: 'vertical',
   //       sizes: [75, 25],
@@ -140,7 +142,21 @@
         document.getElementById("mySidenav").style.width = "0";
     }
 
+    // populate the dropdown list using the analysis.json file when initializing
+    d3.json("../static/analysis.json", function(data) {
+      analysis_params = data;
+      console.log(analysis_params);
 
+       d3.select("#analysisSelector")
+          .selectAll("option")
+          .data(analysis_params.scripts)
+          .enter()
+          .append("option")
+          .attr("value", function(d) { return d.id; })
+          .text(function(d) { return d.name; });
+
+
+    });
 
     d3.select("#mydropbtn")
       .on("click", function(){
@@ -195,26 +211,28 @@
 
 
 
-  //Initialize Backtainting
+  //Initialize Analysis Highlighting
   d3.select("#doTaint")
         .on("click", function(){
 
-       alert("The backtaint and UERDetector libraries are not public and are not available. We are in the process of developing an interface to let you plug your analysis scripts. You can try these analysis in the demo site.");
-       return;
+       // alert("The backtaint and UERDetector libraries are not public and are not available. We are in the process of developing an interface to let you plug your analysis scripts. You can try these analysis in the demo site.");
+       // return;
+
+       // console.log(analysis_params);  
 
       // Get the type of analysis
       var sel = d3.select("#analysisSelector").node();
       var analysisType = sel.options[sel.selectedIndex].value;
 
-      if(analysisType == "allUERs" || 
-        analysisType == "inUERs" ||
-        analysisType == "outUERs"
-        ){
+      // if(analysisType == "allUERs" || 
+      //   analysisType == "inUERs" ||
+      //   analysisType == "outUERs"
+      //   ){
 
-        clearPrevHighlight();
-        highlightUERs(analysisType);
-        return;
-      }
+      //   clearPrevHighlight();
+      //   highlightUERs(analysisType);
+      //   return;
+      // }
 
 
 		  // Remove previous taints
@@ -278,7 +296,30 @@
             //Gather the tracetext and send it along with the address for tainting information
 
             //Construct the request object
-            var taintRequest = {trace: traceText, address: taintAddress}
+            // var taintRequest = {trace: traceText, address: taintAddress};
+
+            // Construct the request object along with the script parameters
+            var taintRequest = {trace: traceText, address: taintAddress}; 
+
+            // console.log(taintRequest);
+            // console.log(analysis_params);  
+
+            // Find the highlight script with the given id in analysis_params
+            var scripts = analysis_params.scripts;
+            for(var i=0; i<scripts.length; i++){
+              if(scripts[i].id == analysisType){
+                if(scripts[i].type == "instrHighlight" ){
+                  taintRequest.scriptpath = scripts[i].scriptpath;
+                  taintRequest.language = scripts[i].language;
+                  taintRequest.outfilename = scripts[i].outfilename;
+                } else {
+                  return;
+                }
+                break;
+              }
+            }         
+
+            // console.log(taintRequest);
 
             // Send request for taint information
             d3.xhr("../getBackTaint/")
@@ -1361,6 +1402,8 @@ function highlightUERs(UERtype){
     match_list = {};
 
     is_node_dragging_enabled = false;
+
+    // analysis_params = [];
   
   }
 

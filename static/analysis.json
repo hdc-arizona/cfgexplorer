@@ -1,0 +1,15 @@
+{
+  "types": [
+    "instrHighlight"
+  ],
+  "scripts": [
+    {
+      "type": "instrHighlight",
+      "id": "s1",
+      "name": "Backtaint",
+      "language": "ruby",
+      "scriptpath": "backTaint.rb",
+      "outfilename": ""
+    }
+  ]
+}

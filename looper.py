@@ -48,15 +48,15 @@ def findLoops():
 @app.route('/getBackTaint/', methods=['GET', 'POST'])
 def getBackTaint():
 
-	########### Started Edit here
+	########### These parameters are now specified by the request object itself
 	# Read the json file
-	with open('analysis.json') as json_file
-		analysisFile = json.load(json_file)	
-	bt_analysis = analysisFile["backtaint"]
-	script_path = bt_analysis["scriptpath"]
-	language = bt_analysis["language"]
-	outfilename = bt_analysis["outfilename"]
-	########### Ended Edit here
+	# with open('analysis.json', 'r') as json_file:
+	# 	analysisFile = json.load(json_file)	
+	# bt_analysis = analysisFile["backtaint"]
+	# script_path = bt_analysis["scriptpath"]
+	# language = bt_analysis["language"]
+	# outfilename = bt_analysis["outfilename"]
+	###########
 
 
 	if request.method=='POST':
@@ -64,12 +64,20 @@ def getBackTaint():
 		# get the taint address
 		address = received["address"]
 		data = received["trace"]
+
+		script_path = received["scriptpath"]
+		language = received["language"]
+		outfilename = received["outfilename"]
+
 	else:
 		#Only for testing purpose
 		address = "40063f"
 		with open('listCalc.jascii', 'r') as myfile:
 			data = myfile.read()
 
+		script_path = "backTaint.rb"
+		language = "ruby"
+		outfilename = ""
 
 	#Write the data to a temp file
 	fileName = str(time.time())
@@ -85,15 +93,15 @@ def getBackTaint():
 	# if error:
 	# 	raise Exception("Error " + str(error))
 
-	########### Started Edit here
-	p = subprocess.Popen([language, scriptpath, fileName, address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	########### Use the script specified by the request
+	p = subprocess.Popen([language, script_path, fileName, address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 	output, error = p.communicate()
 	#Delete the temp file
 	os.remove(fileName)
 
 	if error:
 		raise Exception("Error " + str(error))
-	########### Ended Edit here
+	###########
 
 	return output
 
