@@ -6207,74 +6207,8 @@ ZxO3AAAAAElFTkSuQmCC
        preserveAspectRatio="none"
        height="532"
        width="1421" />
-    <g
-       id="g17352"
-       transform="translate(-416.48242,-61.909548)"
-       style="filter:url(#filter17523)">
-      <circle
-         r="14.257758"
-         cy="364.57126"
-         cx="-343.1376"
-         id="path17334"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text17336"
-         y="371.83957"
-         x="-352.35855"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
-           y="371.83957"
-           x="-352.35855"
-           id="tspan17338"
-           sodipodi:role="line">a</tspan></text>
-    </g>
-    <g
-       id="g17357"
-       transform="translate(246.03015,155.9799)"
-       style="filter:url(#filter17511)">
-      <circle
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="circle17340"
-         cx="-287.66022"
-         cy="421.65668"
-         r="14.257758" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="-296.88116"
-         y="428.92499"
-         id="text17342"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan17344"
-           x="-296.88116"
-           y="428.92499"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:Sans;-inkscape-font-specification:'Sans Bold'">c</tspan></text>
-    </g>
-    <g
-       id="g17362"
-       transform="translate(519.39699,-207.43719)"
-       style="filter:url(#filter17451)">
-      <circle
-         r="14.257758"
-         cy="510.09888"
-         cx="-342.33359"
-         id="circle17346"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         sodipodi:linespacing="125%"
-         id="text17348"
-         y="519.36719"
-         x="-351.55453"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:27.5px;font-family:Sans;-inkscape-font-specification:'Sans Bold'"
-           y="519.36719"
-           x="-351.55453"
-           id="tspan17350"
-           sodipodi:role="line">b</tspan></text>
-    </g>
+    
+    
+    
   </g>
 </svg>
