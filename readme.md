@@ -3,9 +3,9 @@
 This is a public repository for CFGExplorer project. 
 
 <p align="center">
-  <img src="screenshots/CFGExplorer-teaser.svg" height=300 />
+  <img src="screenshots/CFGExplorer-teaser.svg" height=290 />
   &nbsp;
-  <img src="screenshots/LoopBackgroundHighlightingBigGraph.png" height=300 />
+  <img src="screenshots/LoopBackgroundHighlightingBigGraph.png" height=290 />
 </p>
 
 [Click here](https://github.com/hdc-arizona/cfgexplorer/tree/develop/screenshots) for more screenshots.
