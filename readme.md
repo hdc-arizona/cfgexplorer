@@ -1,10 +1,12 @@
 ### Readme
 
-This is a public repository for cfgexplorer project. 
+This is a public repository for CFGExplorer project. 
 
-![alt text](https://github.com/hdc-arizona/cfgexplorer/blob/develop/screenshots/CFGExplorer-teaser.svg "CFGExplorer Teaser")
-
-![alt text](https://github.com/hdc-arizona/cfgexplorer/blob/develop/screenshots/Loop%20Background%20Highlighting%20Big%20Graph.png "Loop Background Highlighting")
+<p align="center">
+  <img src="screenshots/CFGExplorer-teaser.svg.png" height=300 />
+  &nbsp;
+  <img src="screenshots/LoopBackgroundHighlightingBigGraph.png" height=300 />
+</p>
 
 [Click here](https://github.com/hdc-arizona/cfgexplorer/tree/develop/screenshots) for more screenshots.
 
