@@ -53,7 +53,7 @@ python3 -m flask run
 
 This runs the webapp on the following address:
 
-`localhost:5000/tracevis/`
+`localhost:5000/cfgexplorer/`
 
 
 ### More Usage notes
