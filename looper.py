@@ -12,19 +12,15 @@ app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 50 * 8 * 1024 * 1024 # 50 MB Limit
 
 @app.route('/')
-def looper():
-  return render_template('loopify.html')
+def cfgexplorer1():
+  return render_template('traceCFG.html')
 
-@app.route('/linkedView/')
-def linkedView():
-  return render_template('linkedView.html')
-
-@app.route('/compilervis/')
-def compilervis():
-  return render_template('dynaCFG.html')
+@app.route('/cfgexplorer/')
+def cfgexplorer2():
+  return render_template('traceCFG.html')
 
 @app.route('/tracevis/')
-def tracevis():
+def cfgexplorer3():
   return render_template('traceCFG.html')    
 
 @app.route('/findLoops/', methods=['GET', 'POST'])
