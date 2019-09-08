@@ -76,4 +76,4 @@ LGPLv2. [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/LIC
 
 Please cite:
 
-Sabin Devkota and Katherine E. Isaacs. "CFGExplorer: Designing a Visual Control Flow Analytics System around Basic Program Analysis Operations." To appear in Computer Graphics Forum (EuroVis Proceedings), 37(3), 2018.
+Sabin Devkota and Katherine E. Isaacs. "CFGExplorer: Designing a Visual Control Flow Analytics System around Basic Program Analysis Operations." Computer Graphics Forum (EuroVis Proceedings), 37(3), 2018.
