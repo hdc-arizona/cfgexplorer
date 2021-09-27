@@ -70,7 +70,8 @@ This runs the webapp on the following address:
 
 ### Licence
 
-LGPLv2. [Click here](https://github.com/hdc-arizona/cfgexplorer/blob/develop/LICENSE) for more details. 
+MIT. Click [here](LICENSE) for more details.
+
 
 ### Publications
 
